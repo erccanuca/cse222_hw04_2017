@@ -92,9 +92,10 @@ public class Queue<E>{
         Node<E> oldlast = head;
         StringBuilder s = new StringBuilder();
         for (int i=0; i<size();++i) {
-            s.append(oldlast.data);
-            if(oldlast.next != null)
-                s.append(' ');
+            if(oldlast.data == "\n")
+                s.append(oldlast.data);
+            else
+                s.append(oldlast.data).append(' ');
             oldlast=oldlast.next;
         }
         return s.toString();

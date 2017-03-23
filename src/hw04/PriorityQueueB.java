@@ -15,6 +15,10 @@ import java.util.NoSuchElementException;
 public class PriorityQueueB<E extends Comparable<E>> implements Priority<E>{
     
     private LinkedList<E> linked = null;
+
+    public PriorityQueueB() {
+        this.linked = new LinkedList<>();
+    }
     
     
     /**
@@ -66,24 +70,24 @@ public class PriorityQueueB<E extends Comparable<E>> implements Priority<E>{
     public E deleteMin()
     {
         int index=0;
-        int result=0;
         for(int i=1; i < size(); ++i){
-            // same object
-            if(result == linked.get(i-1).compareTo(linked.get(i))){
-               result = 0;
-               index = i;
+            // compare to  i-1 and  i object and i-1 object bigger than i objject
+            if(0 > linked.get(i-1).compareTo(linked.get(i))){
+               index = i-1;
             }
-            else if(result > linked.get(i-1).compareTo(linked.get(i))){
-                result = -1;
-                index = i;
-            }
-            else{
-                result = 1;
-                index = i-1;  
-            }  
+            
         }
         return linked.remove(index);
     }
-    
+    @Override
+    public String toString() {
+        String str="";
+        for(int i = 0; i < linked.size(); ++i)
+            if(linked.get(i).equals("\n")) 
+                str += linked.get(i);
+            else
+                str += linked.get(i) + " ";
+        return str;
+    }
     
 }

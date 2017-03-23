@@ -64,23 +64,26 @@ public class PriorityQueueA<E extends Comparable<E>> extends LinkedList<E>  impl
     public E deleteMin()
     {
         int index=0;
-        int result=0;
         for(int i=1; i < size(); ++i){
-            // same object
-            if(result == super.get(i-1).compareTo(super.get(i))){
-               result = 0;
-               index = i;
+            // compare to  i-1 and  i object and i-1 object bigger than i objject
+            if(0 > super.get(i-1).compareTo(super.get(i))){
+               index = i-1;
             }
-            else if(result > super.get(i-1).compareTo(super.get(i))){
-                result = -1;
-                index = i;
-            }
-            else{
-                result = 1;
-                index = i-1;  
-            }  
+            
         }
         return super.remove(index);
     }
+
+    @Override
+    public String toString() {
+        String str="";
+        for(int i = 0; i < super.size(); ++i)
+            if(super.get(i).equals("\n")) 
+                str += super.get(i);
+            else
+                str += super.get(i) + " ";
+        return str;
+    }
+    
     
 }
