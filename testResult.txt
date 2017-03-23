@@ -1,0 +1,123 @@
+
+***************************************************
+*************** TEST STACKS************************
+*************** Test Part 1 ***********************
+********** TestResult1.csv file content ***********
+File size is: 404 bytes
+1 2 3 4 5 6 7 
+1 2 3 4 5 6 7 
+1 2 3 4 5 6 7 
+1 2 3 4 5 6 7 
+1.2 2.3 4.5 6.7 4.0 
+1.2 2.3 4.5 6.7 4.0 
+1.2 2.3 4.5 6.7 4.0 
+1.2 2.3 4.5 6.7 4.0 
+a g h j t d f 
+a g h j t d f 
+a g h j t d f 
+a g h j t d f 
+kitap kalem defter 
+kitap kalem defter 
+kitap kalem defter 
+kitap kalem defter 
+1 1 22 33 4 4 12 
+1 1 22 33 4 4 12 
+1 1 22 33 4 4 12 
+1 1 22 33 4 4 12 
+as ss dd ff gg hh 
+as ss dd ff gg hh 
+as ss dd ff gg hh 
+as ss dd ff gg hh 
+
+
+
+************** STACK_A OPTİONAL TEST **************
+************* Stack after Push ******************
+***************************************************
+12 13 14 15 abc c 12.45 23 10000 Ali
+Size:10
+************ Stack after 5 time pop **************
+12 13 14 15 abc
+Size:5
+***************************************************
+************** STACK_B OPTİONAL TEST **************
+************* Stack after Push ******************
+***************************************************
+12 13 14 15 abc c 12.45 23 10000 Ali
+Size:10
+************ Stack after 5 time pop **************
+12 13 14 15 abc
+Size:5
+***************************************************
+************** STACK_C OPTİONAL TEST **************
+************* Stack after Push ******************
+***************************************************
+12 13 14 15 abc c 12.45 23 10000 Ali
+Size:10
+************ Stack after 5 time pop **************
+c 12.45 23 10000 Ali
+Size:5
+***************************************************
+************** STACK_D OPTİONAL TEST **************
+************* Stack after Push ******************
+***************************************************
+12 13 14 15 abc c 12.45 23 10000 Ali 
+Size:10
+************ Stack after 5 time pop **************
+c 12.45 23 10000 Ali 
+Size:5
+***************************************************
+
+***************************************************
+************* TEST REVERSE QUEUES******************
+*************** Test Part 2 ***********************
+*********** TestResult2.csv file content **********
+File size is: 101
+
+hh gg ff dd ss as 
+12 4 4 33 22 1 1 
+defter kalem kitap 
+f d t j h g a 
+4.0 6.7 4.5 2.3 1.2 
+7 6 5 4 3 2 1 
+***************************************************
+
+***************************************************
+************* TEST PART2 OPTINAL ******************
+12 13 14 15 sdsds wq s 12.2 aaaaaa 
+aaaaaa 12.2 s wq sdsds 15 14 13 12 
+
+***************************************************
+*********** TEST PRIORITY QUEUES*******************
+*************** Test Part 3 ***********************
+************* TestResult3.csv file content ********
+File size is: 202 bytes.
+1 2 3 4 5 6 7 
+1 2 3 4 5 6 7 
+1.2 2.3 4.5 6.7 4.0 
+1.2 2.3 4.5 6.7 4.0 
+a g h j t d f 
+a g h j t d f 
+kitap kalem defter 
+kitap kalem defter 
+1 1 22 33 4 4 12 
+1 1 22 33 4 4 12 
+as ss dd ff gg hh 
+as ss dd ff gg hh 
+
+***************************************************
+***************************************************
+************ TEST PART3 OPTINAL********************
+PriorityQueueA<Integer> pqa = new PriorityQueueA<>();
+pqa.enqueue(20);
+pqa.enqueue(21);
+pqa.enqueue(19);
+pqa.enqueue(42);
+Test delete min: 19
+
+PriorityQueueB<String> pqb = new PriorityQueueB<>();
+pqb.enqueue("ali");
+pqb.enqueue("selim");
+pqb.enqueue("banu");
+pqb.enqueue("ercan");
+Test delete min: banu

@@ -31,19 +31,19 @@ public class MainClass {
         System.out.println("*************** TEST STACKS************************");
         testStacks();
         System.out.println("\n\n************** STACK_A OPTİONAL TEST **************");
-        StackInterface stackA =  new StackA();
+        StackInterface stackA =  new StackA<>();
         testStacks_optional(stackA);
         System.out.println("***************************************************");
         System.out.println("************** STACK_B OPTİONAL TEST **************");
-        StackInterface stackB =  new StackB();
+        StackInterface stackB =  new StackB<>();
         testStacks_optional(stackB);
         System.out.println("***************************************************");
         System.out.println("************** STACK_C OPTİONAL TEST **************");
-        StackInterface stackC =  new StackC();
+        StackInterface stackC =  new StackC<>();
         testStacks_optional(stackC);
         System.out.println("***************************************************");
         System.out.println("************** STACK_D OPTİONAL TEST **************");
-        StackInterface stackD =  new StackD();
+        StackInterface stackD =  new StackD<>();
         testStacks_optional(stackD);
         System.out.println("***************************************************");
         
@@ -83,20 +83,22 @@ public class MainClass {
      * print file stacks contents.
      * @param filename name of file to print.
      */
+    static int lineNum = 1;
     private static void printToFileStack(String filename){
         String str = "";
         String str2 = "";
         String header="File size is: ";
+        
         try {
             str += CVSReaderStack();
-            System.out.println("File size is: "+(str.length()-16)+ " bytes");
+            System.out.println("File size is: "+(str.length()-(lineNum*4))+ " bytes");
             System.out.println(str);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
         try{
             try (PrintWriter writer = new PrintWriter(filename, "UTF-8")) {
-                str2 += header+(str.length()-16)+ " bytes\n";
+                str2 += header+(str.length()-(lineNum*4))+ " bytes\n";
                 str2 += str;
                 writer.print(str2);
             }
@@ -115,10 +117,11 @@ public class MainClass {
         try (Scanner scanner = new Scanner(new File("test.csv"))) {
             
             while(scanner.hasNextLine()){
-                StackInterface stacka = new StackA();
-                StackInterface stackb = new StackB();
-                StackInterface stackc = new StackC();
-                StackInterface stackd = new StackD();
+                lineNum++;
+                StackInterface stacka = new StackA<>();
+                StackInterface stackb = new StackB<>();
+                StackInterface stackc = new StackC<>();
+                StackInterface stackd = new StackD<>();
                 for(String item : scanner.nextLine().split("\n")){
                     Scanner s = new Scanner(item);
                     s.useDelimiter(",");
@@ -164,11 +167,12 @@ public class MainClass {
      * Print to file reversed queue
      * @param filename name of file reversed queue print.
      */
+    static int lineQ=1; 
     private static void printToFileQueue(String filename){
-        Queue q = new Queue();
-        MyQueue myqueue = new MyQueue(q);
+        Queue q = new Queue<>();
+        MyQueue myqueue = new MyQueue<>(q);
         String str = "";
-        String header="File size is:";
+        String header="File size is: ";
         try {
             CVSReaderQueue(q);
         } catch (FileNotFoundException e) {
@@ -180,10 +184,10 @@ public class MainClass {
                 myqueue.reverseQueue(q);
                 //System.out.println(myqueue.getFirst().toString());
                 str+=q.toString();
-                header+=str.length()-4;
+                header+=str.length()-(lineQ*1);
                 writer.print(header);
                 writer.print(" bytes");
-                System.out.println(str);
+                System.out.println("\n"+header+"\n"+str);
                 writer.print(str);
             }
         } catch (IOException e) {
@@ -199,6 +203,7 @@ public class MainClass {
     private static void CVSReaderQueue(Queue q) throws FileNotFoundException{
         try (Scanner scanner = new Scanner(new File("test.csv"))) {
             while(scanner.hasNextLine()){
+                lineQ++;
                 for(String item : scanner.nextLine().split("\n")){
                     Scanner sa = new Scanner(item);
                     sa.useDelimiter(",");
@@ -233,9 +238,10 @@ public class MainClass {
      * Print to file priority queue
      * @param filename name of file priority queue print.
      */
+    static int pqline = 1;
     private static void printToFilePriority(String filename){
         String str = "";
-        String header="File size is:";
+        String header="File size is: ";
         try {
             str += CVSReaderPriority();
         } catch (FileNotFoundException e) {
@@ -244,7 +250,7 @@ public class MainClass {
         try{
             try (PrintWriter writer = new PrintWriter(filename, "UTF-8")) {
 
-                header+=(str.length()-8)+ " bytes.";
+                header+=(str.length()-(pqline*2))+ " bytes.";
                 writer.println(header);
                 System.out.println(header+"\n"+str);
                 writer.print(str);
@@ -263,8 +269,9 @@ public class MainClass {
         String str = "";
         try (Scanner scanner = new Scanner(new File("test.csv"))) {
             while(scanner.hasNextLine()){
-                PriorityQueueA pqa =  new PriorityQueueA();
-                PriorityQueueB pqb =  new PriorityQueueB();
+                pqline++;
+                PriorityQueueA pqa =  new PriorityQueueA<>();
+                PriorityQueueB pqb =  new PriorityQueueB<>();
                 for(String item : scanner.nextLine().split("\n")){
                     Scanner sa = new Scanner(item);
                     sa.useDelimiter(",");
@@ -324,7 +331,7 @@ public class MainClass {
      * Optional queue test
      */
     private static void testPart2_optinal(){
-        Queue q = new Queue();
+        Queue q = new Queue<>();
         q.enqueue(12);
         q.enqueue(13);
         q.enqueue(14);
@@ -335,7 +342,7 @@ public class MainClass {
         q.enqueue(12.2);
         q.enqueue("aaaaaa");
         
-        MyQueue myq = new MyQueue(q);
+        MyQueue myq = new MyQueue<>(q);
         System.out.println(myq.toString());
         myq.reverseQueue(q);
         System.out.println(myq.toString());

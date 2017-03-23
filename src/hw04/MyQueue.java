@@ -5,8 +5,6 @@
  */
 package hw04;
 
-import java.util.Stack;
-
 /**
  *
  * @author ercan

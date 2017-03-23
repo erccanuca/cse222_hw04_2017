@@ -54,6 +54,7 @@ public class Queue<E>{
     
    /**
      * Add the item to the queue.
+     * @param item to be add queue
     */
     public void enqueue(E item) {
         Node<E> oldlast = tail;

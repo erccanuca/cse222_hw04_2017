@@ -4,10 +4,10 @@ import java.util.*;
 
 /** Class KWLinkedList implements a double linked list and
  *  a ListIterator.
- *  @author Koffman & Wolfgang
+ *  @author Koffman Wolfgang
  * */
 
-public class KWLinkedList < E > {
+public class KWLinkedList<E> {
   // Data Fields
   /** A reference to the head of the list. */
   private Node < E > head = null;
@@ -106,11 +106,10 @@ public class KWLinkedList < E > {
   /**** END EXERCISE ****/
 
   /** Add an item at the specified index.
-      @param index The index at which the object is to be
-             inserted
-      @param obj The object to be inserted
-      @throws IndexOutOfBoundsException if the index is out
-              of range (i < 0 || i > size())
+      *@param index The index at which the object is to be inserted
+      *@param obj The object to be inserted
+      *throws IndexOutOfBoundsException if the index is out
+      of range (i less 0 || i greater size())
    */
   public void add(int index, E obj) {
     listIterator(index).add(obj);
